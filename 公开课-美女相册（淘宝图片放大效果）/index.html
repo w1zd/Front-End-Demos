@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美女相册-淘宝图片放大镜效果</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="app">
+    <div class="main">
+      <div class="preview">
+        <img id="picture-preview" src="./images/beauty-1.jpg" alt="">
+        <div class="mask"></div>
+      </div>
+      <div class="zoom">
+        <img id="picture-zoom" src="./images/beauty-1.jpg" alt="">
+      </div>
+    </div>
+    <ul id="thumbnails">
+      <li>
+        <!-- a标签不是用来跳转链接的，只是用来存储大图地址的 -->
+        <a href="./images/beauty-1.jpg">
+          <img src="./images/beauty-1-small.jpg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="./images/beauty-2.jpg">
+          <img src="./images/beauty-2-small.jpg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="./images/beauty-3.jpg">
+          <img src="./images/beauty-3-small.jpg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="./images/beauty-4.jpg">
+          <img src="./images/beauty-4-small.jpg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="./images/beauty-5.jpg">
+          <img src="./images/beauty-5-small.jpg" alt="">
+        </a>
+      </li>
+    </ul>
+  </div>
+  <script src="./javascript/index.js"></script>
+</body>
+</html>

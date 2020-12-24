@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-color: #303030;
+}
+
+.main{
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.game{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: #eee;
+  margin: 50px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container{
+  height: 550px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.score {
+  width: 15%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.score div{
+  margin: 10px 0;
+}
+
+.score div button{
+  background-color: green;
+  color: #fff;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #77ff77;
+}
+
+.canvas {
+  width: 80%;
+  height: 85%;
+  /* background-color: #fff; */
+  background-image: url(../images/timg.jpg);
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3) inset;
+  position: relative;
+}
+
+.cell{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  /* top: 50px;
+  left: 50px; */
+  background-color: seagreen;
+  border-radius: 50%;
+  font-size: 30px;
+  color: #fff;
+  line-height: 40px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+}

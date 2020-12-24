@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 箭头函数 ES6
+      // 只要会函数，这个就能听懂
+
+      // 传统的函数表达式写法
+      // var func = function (a, b) {
+      //   return a + b;
+      // }
+
+      // console.log(func(1, 2));
+
+      // ES6 中提供了一个语法糖
+      // var func = (a, b) => {
+      //   return a + b;
+      // }
+
+      // console.log(func(1, 2));
+
+      // 在某些特殊情况下，箭头函数可以有不同形式的简写
+      // 1. 当箭头函数只有一个形参的时候，参数列表的（）可以省略掉
+      // var func = function(a) {
+      //   console.log(a);
+      // }
+
+      // var func = (a) => {
+      //   console.log(a);
+      // }
+
+      // var func = a => {
+      //   console.log(a);
+      // }
+      // func("hello");
+
+      // 2. 当箭头函数函数体中只有一条语句的时候，函数体的{}可以省略掉
+      // var func = function (a) {
+      //   console.log(a);
+      // };
+
+      // var func = a => {
+      //   console.log(a);
+      // }
+
+      // var func = a => console.log(a);
+      // func("Hello")
+
+      // 3. 当箭头函数只有一条语句，并且这条语句是个return语句的时候，大括号可以省略，而且return也要省略
+      // var sum = function (a, b) {
+      //   return a + b;
+      // }
+
+      // var sum = (a, b) => {
+      //   return a + b;
+      // }
+
+      // var sum = (a, b) => a + b;
+      // console.log(sum(1, 2));
+
+      // 4. 当箭头函数中只有一条返回语句，并且返回的是一个对象的时候，注意要给对象加上（）之后再简写
+      // var func = function(name){
+      //   return {person: name, age: 18}
+      // }
+
+      // console.log(func("吴彦祖"));
+
+      // var func = name => {
+      //   return {person: name, age: 18}
+      // }
+
+      // var func = name => ({person: name, age: 18}); 
+
+      // 5. 开发经验，当函数没有参数的时候，开发人员一般习惯用 _ 代替 参数列表()
+      // var func = function(){
+      //   console.log("hello world");
+      // }
+
+      // var func = () => console.log("Hello world");
+
+      // var func = _ => console.log("hello world");
+
+      // 箭头函数的this指向问题
+      // 箭头函数中没有this，如果在箭头函数中使用this，那么这个this会沿着作用域链向上找
+
+      // 箭头函数中的this指向，跟调用方式，完全没有任何关系，只需要用作用域访问规则去分析即可。
+
+      // var func = () => {
+      //   console.log(this);
+      // }
+
+      // func();
+
+      // var obj = {
+      //   name: "吴彦祖",
+      //   sayHello: func
+      // }
+
+      // obj.sayHello();
+
+
+      // 箭头函数使用call和apply调用的时候， 第一个参数（改变this的这参数）相当于直接被忽略了
+      // 也就是说 call和apply改变不了 箭头函数中的this
+      // func.call({})
+
+
+      // var obj = {
+      //   name: "吴彦祖",
+      //   sayHello: function(){
+      //     // 这个函数中是有this的
+      //     // 只要知道这个函数中的this是谁，那么箭头函数中的this就是他了
+      //     // this 指向 obj
+
+      //     var func = () => {
+      //       // 箭头函数中没有this
+      //       // 找this沿着作用域链向上找
+      //       console.log(this)
+      //     }
+      //     func();
+
+      //   }
+      // }
+
+      // obj.sayHello();
+
+      // 开发经验相关：
+      // var that = this;
+
+      // var obj = {
+      //   name: "吴彦祖",
+      //   hobbies: ["抽烟", "喝酒", "烫头"],
+      //   func: function(){
+
+      //     var that = this;
+
+      //     var sayHello = function(){
+      //       console.log("大家好，我叫" + that.name);
+      //       console.log("我有如下的爱好")
+      //       for(var i = 0; i < that.hobbies.length; i ++){
+      //         console.log(that.hobbies[i]);
+      //       }
+      //     }
+      //     return sayHello;
+      //   }
+      // }
+
+      // var sayHello = obj.func();
+      // sayHello();
+
+      // var obj = {
+      //   name: "吴彦祖",
+      //   hobbies: ["抽烟", "喝酒", "烫头"],
+      //   func: function(){
+      //     var sayHello = () => {
+      //       console.log("大家好，我叫" + this.name);
+      //       console.log("我有如下的爱好")
+      //       for(var i = 0; i < this.hobbies.length; i ++){
+      //         console.log(this.hobbies[i]);
+      //       }
+      //     }
+      //     return sayHello;
+      //   }
+      // }
+      // var sayHello = obj.func();
+      // sayHello();
+
+      // var dog = {
+      //   voice: "汪",
+      //   bark: function(){
+      //     setInterval(() => {
+      //       console.log(this.voice);
+      //     }, 1000)
+      //   }
+      // }
+
+      // dog.bark();
+
+      // 箭头函数中没有 arguments ，如果在箭头函数中使用了arguments 那也会像this一样，沿着作用域链向上查找
+
+      // var arguments = "我啥也不是";
+      // var func = () => {
+      //   console.log(arguments);
+      // }
+
+      // func(1, 2, 3)
+
+      // function func (){
+      //   var foo = () => {
+      //     console.log(arguments);
+      //   }
+
+      //   foo(1, 2, 3)
+      // }
+
+      // func(4, 5, 6);
+
+      // 问题： 没有了arguments 我怎么拿所有的参数呢？？
+      // 剩余参数: 剩余参数，会将剩余的所有参数，放到一个真数组中。
+
+      // var func = (a, b, ...arr) => {
+      //   console.log(a, b, arr)
+      // }
+
+      // func(1)
+      // func(2, 3)
+      // func(4, 5, 6, 7)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 遍历数组 怎么做的?
+      var arr = [1, 2, 3, 4, 5];
+      // for(var i = 0; i < arr.length; i ++){
+      //   console.log(arr[i]);
+      // }
+
+      // forEach()
+      // 在调用forEach方法的时候，我们会传入一个回调函数
+      // js内部会遍历数组所有元素，在每一个元素上调用这个函数
+      // arr.forEach(function (value, index, arr) {
+      //   //value: 数组当前正在遍历的元素
+      //   //index: 正在的遍历的元素的索引
+      //   //arr: 当前正在调用forEach的数组
+      //   console.log(value, index, arr);
+      // });
+
+      // // 箭头函数
+      // arr.forEach(function (v) {
+      //   console.log(v);
+      // });
+
+      // arr.forEach((v) => console.log(v));
+
+      // var obj = {
+      //   name: "张三"
+      // }
+
+      // forEach方法第二个参数是用来设置回调函数中的this指向的
+      // arr.forEach(function(v){
+      //   console.log(this.name + v);
+      // }, obj)
+
+      // 需求： 创建一个新数组，让新数组中的每一个元素都是老数组中的10倍
+      // var arr = [1, 2, 3, 4];
+
+      // newArr [10, 20, 30, 40]
+
+      // map方法可以返回一个新数组
+      // 新数组中存储的元素就是每一次调用完回调函数的返回值
+      // var newArr = arr.map(function(value, index, arr){
+      //   return value * 10;
+      // })
+
+      // var newArr =arr.map(function (value, index, arr) {
+      //   return value * 10;
+      // });
+
+      // console.log(newArr);
+
+      // 需求： 找出数组中所有的偶数，存入一个新数组中
+      // var arr = [1, 2, 3, 4, 5]
+
+      // // filter 创建一个新数组
+      // // 新数组中存储的是数组中满足条件的元素
+      // var newArr = arr.filter(function(value, index, arr){
+      //   return value % 2 === 0;
+      // })
+      // console.log(newArr);
+
+      // 需求： 判断数组中是否所有元素都是奇数
+      var arr = [1, 3, 5, 7, 8];
+
+      // every
+      // every 方法返回一个布尔值
+      // 当数组中所有元素调用回调函数都返回true的时候，every方法才会返回true
+
+      // var isOddArr = arr.every(function(value, index, arr){
+      //   return value %2 != 0;
+      // })
+
+      // console.log(isOddArr)
+
+      // 需求： 判断数组中是否至少包含一个偶数
+      // var arr = [1, 5, 3, 7]
+      // // some
+      // // 对照every去记忆，every是所有元素满足条件才是true
+      // // some 只要有一个满足条件，那么就是true
+      // var haveEvenNumber = arr.some(function(value, index, arr){
+      //   return value % 2 == 0;
+      // })
+
+      // console.log(haveEvenNumber)
+
+      // 需求： 数组求和
+      var arr = [1, 2, 3, 4];
+
+      // var sum = 0;
+      // arr.forEach(function(v){
+      //   sum += v;
+      // })
+      // console.log(sum);
+
+      // reduce
+      // arr.reduce(function(上一次函数调用的返回值, value, index, arr){}, 初始值);
+
+      // var sum = arr.reduce(function(preValue, value, index){
+      //   return preValue + value;
+      // }, 0)
+
+      // console.log(sum);
+
+      // reduce方法其实也可以不用传递默认值
+      // 当我们不给reduce传默认值的时候，他会直接从第二个元素开始遍历
+      // 会把第一个元素的值作为第一次调用的preValue值
+      // var sum = arr.reduce(function(preValue, value){
+      //   return preValue + value;
+      // })
+
+      // console.log(sum);
+
+      var sum = arr.reduce((a, b) => a + b)
+
+      console.log(sum);
+
+    </script>
+  </body>
+</html>
