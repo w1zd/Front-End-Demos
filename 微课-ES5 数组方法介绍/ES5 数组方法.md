@@ -10,7 +10,6 @@
 
 ```javascript
 arr.forEach(callback(currentValue [, index [, array]])[, thisArg])
-
 // callback
   // 为数组中每个元素执行的函数，该函数接收一至三个参数：
     // currentValue
